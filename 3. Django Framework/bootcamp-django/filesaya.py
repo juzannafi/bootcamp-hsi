@@ -2,7 +2,6 @@
 
 import os
 import sys
-# import configsaya
 
 if __name__ == '__main__':
     try:
