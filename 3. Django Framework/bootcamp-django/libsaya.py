@@ -5,7 +5,15 @@ from django.shortcuts import render
 
 def get_list_peserta(request):
     list_peserta = []
-    qs = Peserta.objects.filter(gender='Laki-laki') # SELECT ALL #query set
+
+    name = request.GET.get('name', '')
+    # name = request.POST.get('name', '')
+
+    # qs = Peserta.objects.filter()  # SELECT ALL #query set
+
+    if name:
+        qs = Peserta.objects.filter(name__icontains=name)
+
     # qs = Peserta.objects.filter(nama__icontains='kus')
     print(qs.query)
     for p in qs:
@@ -74,5 +82,7 @@ def fungsi_tiga(request):
         <h2>Ahlan wa sahlan</h2>
     """)
 
-def fungsi_empat(request):
-    return render(request, "listpeserta.html")
+# def fungsi_empat(request):
+    # return render(request, "listpeserta.html", data)
+
+# def fungsi
