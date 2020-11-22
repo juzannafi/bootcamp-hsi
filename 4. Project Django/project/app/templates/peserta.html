@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Participant List</title>
+</head>
+<body>
+    <h1>Participant List</h1>
+    {% if list_peserta %}
+    <ol>
+        {% for peserta in list_peserta %}
+            <li> User info: </li>
+            <ul>
+                <li> First Name: {{peserta.first_name}}</li>
+                <li> Last Name: {{peserta.last_name}}</li>
+                <li> Gender: {{peserta.gender}}</li>
+                <li> Email: {{peserta.email}}</li>
+            </ul>
+        {% endfor %}
+    </ol>
+    {% endif %}
+</body>
+</html>
