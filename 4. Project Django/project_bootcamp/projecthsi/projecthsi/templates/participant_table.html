@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Participant List</title>
+    <style>
+        table{
+            width: 90%;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+        }
+
+        th{
+            border-bottom: 2px solid black;
+        }
+
+        td {
+          text-align: center;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          }
+
+        tr:nth-child(odd) {
+            background-color: #dfdfdf;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .center{
+            margin-left: auto;
+            margin-right: auto;
+         }
+        .form-container{
+            background-color: #ededed;
+            border: 4px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .button {
+            width: 200px;
+            order: 2px solid #4CAF50;
+            color: black;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            background-color: white;
+
+        }
+        .button:hover {
+            background-color: #4CAF50;
+            color: white;
+           }
+    </style>
+</head>
+<body>
+    <h1>Daftar Peserta</h1>
+    {% if list_participant %}
+    <table class="center">
+        <tr>
+            <th>Nama</th>
+            <th>NIP</th>
+            <th>Jenis kelamin</th>
+            <th>Alamat Email</th>
+            <th>Opsi</th>
+        </tr>
+        {% for participant in list_participant %}
+        <tr>
+            <td>{{participant.name}}</td>
+            <td>{{participant.nip}}</td>
+            <td>{{participant.gender}}</td>
+            <td>{{participant.email}}</td>
+            <td>[Edit] [Delete]</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+<!--    <div class="form-container center">-->
+<!--        <p style="font-weight: bold;">-->
+<!--            Menambahkan peserta:-->
+<!--        </p>-->
+<!--        <label> Nama: </label>-->
+<!--        <input type="text" value=""><br>-->
+<!--        <label> NIP: </label>-->
+<!--        <label> Jenis Kelamin: </label>-->
+<!--        <label> Alamat Email: </label>-->
+<!--        <button class="button" onclick="alert('Berhasil ditambahkan')">Tambahkan</button>-->
+<!--    </div>-->
+</body>
+</html>

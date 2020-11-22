@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Participant List</title>
+</head>
+<body>
+    <h1>Participant List</h1>
+    {% if list_participant %}
+    <ol>
+        {% for participant in list_participant %}
+            <li> User info: </li>
+            <ul>
+                <li> Name: {{participant.name}}</li>
+                <li> NIP: {{participant.nip}}</li>
+                <li> Gender: {{participant.gender}}</li>
+                <li> Email: {{participant.email}}</li>
+            </ul>
+        {% endfor %}
+    </ol>
+    {% endif %}
+</body>
+</html>
