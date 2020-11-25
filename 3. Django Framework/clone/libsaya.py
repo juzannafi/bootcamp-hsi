@@ -3,6 +3,8 @@
 
 
 from django.http import HttpResponse, JsonResponse
+from django.shortcuts import render
+
 from app1.models import Peserta, Materi, DaftarPeserta
 
 
@@ -16,9 +18,20 @@ def get_daftarpeserta(request):
 
 def get_list_peserta(request):
     list_peserta = []
+    
+    name = request.GET.get('name', '')
+    age = request.GET.get('age', '')
+    # name = request.POST.get('name', '')
+    
+    
     # qs = Peserta.objects.filter(gender='Laki-laki', age=10)
-    qs = Peserta.objects.filter(name__icontains='kus')
-    print(qs.query)
+    qs = Peserta.objects.filter()
+    
+    if name:
+        qs = Peserta.objects.filter(name__icontains=name)
+    if age:
+        qs = qs.filter(age=age)
+    # print(qs.query)
     
     for p in qs:
         list_peserta.append({
@@ -76,3 +89,15 @@ def fungsi_tiga(request):
         <h1>Bismillaah</h1>
         <h2>Ahlan wa sahlan</h2>
     """)
+
+def fungsi_empat(request):
+    data = {
+        'text1': 'Contoh teks1',
+        'color': 'Merah',
+        'list_peserta00': get_list_peserta(request),
+    }
+    return render(request, "listpeserta.html", data)
+
+
+
+

@@ -1,0 +1,36 @@
+{% extends "appbase.html" %}
+
+
+{% block title %}
+HALAMAN LIST PESERTA
+{% endblock %}
+
+
+
+
+{% block isihalaman %}
+
+<h1>List Peserta</h1>
+
+<table border="1">
+    <tr>
+        <td>Nama</td>
+        <td>Gender</td>
+        <td>Age</td>
+    </tr>
+
+    {% for peserta in list_peserta00 %}
+        <tr>
+            <td>{{peserta.name}}</td>
+            <td>{{peserta.gender}}</td>
+            <td>{{peserta.age}}</td>
+        </tr>
+    {% endfor %}
+
+
+</table>
+
+
+{% endblock %}
+
+
