@@ -52,17 +52,21 @@
             margin: 4px 2px;
             transition-duration: 0.4s;
             cursor: pointer;
-            background-color: white;
+            background-color:  #b3d1ff;
+            border-radius: 10px;
 
         }
         .button:hover {
-            background-color: #4CAF50;
+            background-color: #3385ff;
             color: white;
            }
     </style>
 </head>
 <body>
     <h1>Daftar Peserta</h1>
+    <div style="display: flex; justify-content: flex-end">
+        <button class="button" onclick="location.href='add-participant';">+ Tambah Peserta</button>
+    </div>
     {% if list_participant %}
     <table class="center">
         <tr>

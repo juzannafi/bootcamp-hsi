@@ -17,3 +17,6 @@ def participant_table(request):
     # print(list_participant) #debug
     data = {'list_participant': list_participant}
     return render(request, 'participant_table.html', context=data)
+
+def add_participant(request):
+    return render(request, 'add_participant.html')
